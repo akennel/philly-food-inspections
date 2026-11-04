@@ -1,0 +1,40 @@
+{
+  "name": "philly-food-inspections",
+  "version": "0.1.0",
+  "description": "Philadelphia restaurant inspection map",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "backfill": "tsx scripts/backfill.ts",
+    "geocode": "tsx scripts/geocode.ts",
+    "upload": "tsx scripts/upload.ts"
+  },
+  "dependencies": {
+    "@fontsource/barlow-semi-condensed": "^5.3.0",
+    "@fontsource/public-sans": "^5.3.0",
+    "@netlify/blobs": "^11.1.7",
+    "leaflet": "^1.9.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^6.0.3",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
