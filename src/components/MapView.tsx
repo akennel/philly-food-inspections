@@ -32,10 +32,11 @@ export function MapView({ points, selected, onSelect, onBoundsChange }: Props) {
     if (!el.current || map.current) return;
     const m = L.map(el.current, { zoomControl: false, preferCanvas: true, minZoom: 10, maxZoom: 19 }).setView(PHILLY, 12);
     L.control.zoom({ position: 'topright' }).addTo(m);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 20,
+    // OpenStreetMap's standard tiles: free, no key (https://operations.osmfoundation.org/policies/tiles/).
+    // Muted with a CSS filter (.leaflet-tile-pane in styles.css) so the status dots carry the color.
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
     }).addTo(m);
     layer.current = L.layerGroup().addTo(m);
     m.on('moveend', () => cb.current.onBoundsChange(m.getBounds()));

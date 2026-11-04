@@ -542,6 +542,10 @@ a {
 }
 
 /* ---------- Leaflet tweaks ---------- */
+/* Quiet the busy OSM basemap so the inspection dots carry the color. */
+.leaflet-tile-pane {
+  filter: grayscale(0.9) contrast(0.88) brightness(1.06);
+}
 .leaflet-container {
   font-family: var(--text);
 }
